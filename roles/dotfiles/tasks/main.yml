@@ -1,4 +1,6 @@
 ---
-- name: debug
-  debug:
-    msg: WTF dude
+- name: Copy vimrc
+  copy:
+    dest: "{{ ansible_env['HOME'] }}/.vimrc"
+    src: ../../../ubuntu/.vimrc
+
