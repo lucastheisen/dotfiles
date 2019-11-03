@@ -3,5 +3,5 @@ dependencies:
 - role: wsl_git
   vars:
     roles:
-      wsl_git:
+      wsl_vim:
         vimrc_local: yes
