@@ -1,4 +1,8 @@
 ---
-- name: Import handlers from wsl_git
-  include_tasks: roles/wsl_git/handlers/main.yml
+# Inspired by this issue: https://github.com/junegunn/vim-plug/issues/730
+- name: Install vim plugins
+  listen: "install vim plugins"
+  shell: |
+    vim +'PlugInstall --sync' +qall &> /dev/null < /dev/tty
+
 
