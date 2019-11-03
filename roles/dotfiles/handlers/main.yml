@@ -1,0 +1,4 @@
+---
+- name: Import handlers from wsl_git
+  include_tasks: roles/wsl_git/handlers/main.yml
+
