@@ -2,4 +2,6 @@
 dependencies:
 - role: wsl_git
   vars:
-    roles: "{{ roles | combine({'wsl_git': {'vimrc_local': True}}, recursive=True) }}"
+    roles:
+      wsl_git:
+        vimrc_local: yes
