@@ -1,6 +1,6 @@
 ---
 dependencies:
-- role: wsl_git
+- role: wsl_vim
   vars:
     roles:
       wsl_vim:
