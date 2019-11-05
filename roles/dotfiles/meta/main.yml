@@ -4,11 +4,9 @@ dependencies:
   vars:
     roles:
       wsl_nodejs:
-        role_weight: -2
 - role: wsl_vim
   vars:
     roles:
       wsl_vim:
-        role_weight: -1
         vimrc_local: yes
 
