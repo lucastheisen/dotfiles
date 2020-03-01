@@ -12,6 +12,8 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'thinca/vim-prettyprint'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'hinrik/color-scheme-literal-tango'
 Plug 'nanotech/jellybeans.vim'
@@ -29,6 +31,9 @@ Plug 'mhartington/vim-typings'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Dotnet
+Plug 'OmniSharp/omnisharp-vim'
+
 call plug#end()
 
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
@@ -43,17 +48,24 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 set number
+set colorcolumn=80
 
 autocmd FileType xml set tabstop=2|set softtabstop=2|set shiftwidth=2
 autocmd FileType html set tabstop=2|set softtabstop=2|set shiftwidth=2
 autocmd FileType xhtml set tabstop=2|set softtabstop=2|set shiftwidth=2
 autocmd FileType yaml set tabstop=2|set softtabstop=2|set shiftwidth=2
+autocmd FileType sh set tabstop=2|set softtabstop=2|set shiftwidth=2
+autocmd FileType bash set tabstop=2|set softtabstop=2|set shiftwidth=2
+autocmd FileType bats set tabstop=2|set softtabstop=2|set shiftwidth=2
 
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 nmap <silent> <tab> <C-w><C-w>
+
+let test#python#runner = 'pytest'
+let test#python#pytest#options = '-vvvv --log-level debug'
 
 """" BEGIN COC.NVIM """"
 " if hidden is not set, TextEdit might fail.
