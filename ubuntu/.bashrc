@@ -22,3 +22,5 @@ if [ -f "${HOME}/.bashrc_env" ] ; then
   source "${HOME}/.bashrc_env"
 fi
 
+EDITOR=vim
+export EDITOR
