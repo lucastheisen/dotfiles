@@ -1,5 +1,5 @@
 # If not running interactively, don't go further
-[[ "$-" != *i* ]] && return
+# [[ "$-" != *i* ]] && return
 
 # Shell Options
 alias grep='grep --color' 
