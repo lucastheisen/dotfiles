@@ -198,3 +198,4 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 """" END COC.NVIM """"
 
+set visualbell
