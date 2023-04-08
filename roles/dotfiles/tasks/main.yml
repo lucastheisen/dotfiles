@@ -1,0 +1,8 @@
+---
+- name: Copy vimrc
+  copy:
+    dest: "{{ ansible_env['HOME'] }}/.vimrc"
+    src: ../../../ubuntu/.vimrc
+  register: role_wsl_vim_fetch_vimrc_result
+  notify: "install vim plugins"
+

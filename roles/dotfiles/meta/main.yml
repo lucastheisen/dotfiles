@@ -1,0 +1,12 @@
+---
+dependencies:
+- role: wsl_nodejs
+  vars:
+    roles:
+      wsl_nodejs:
+- role: wsl_vim
+  vars:
+    roles:
+      wsl_vim:
+        vimrc_local: yes
+
