@@ -1,8 +1,6 @@
 ---
-- name: Copy vimrc
+- name: Copy dotfiles
   copy:
-    dest: "{{ ansible_env['HOME'] }}/.vimrc"
-    src: ../../../ubuntu/.vimrc
-  register: role_wsl_vim_fetch_vimrc_result
+    dest: "{{ ansible_env['HOME'] }}"
+    src: home/
   notify: "install vim plugins"
-
