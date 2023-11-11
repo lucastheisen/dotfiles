@@ -1,15 +1,27 @@
 #!/bin/bash
 
+### Installs dotfiles using ansible.
+###
+### Usage:
+###   [OPTIONS] ./install.sh
+###
+### Options:
+###   INSTALL_DIR: directory to install python venv and ansible used to install
+###     the dotfiles. This is NOT the location the dotfiles get installed to.
+###     (default: ${HOME}/.local/share/dotfiles)
+###   PYTHON: python 3 command to use to create the venv for ansible. (default:
+###     python3)
+
 set -e
 
 ROOT_DIR="$(dirname -- "$(readlink --canonicalize-existing -- "$0")")"
 readonly ROOT_DIR
 
-readonly INSTALL_DIR="${HOME}/.local/share/dotfiles"
+readonly INSTALL_DIR="${INSTALL_DIR:-${HOME}/.local/share/dotfiles}"
 
-readonly ANSIBLE_HOME="${ANSIBLE_HOME:-${INSTALL_DIR}/ansible}"
+readonly ANSIBLE_HOME="${INSTALL_DIR}/ansible"
 readonly PYTHON="${PYTHON:-python3}"
-readonly PYTHON_VENV="${PYTHON_VENV:-${INSTALL_DIR}/venv}"
+readonly PYTHON_VENV="${INSTALL_DIR}/venv"
 
 export ANSIBLE_HOME
 
@@ -52,4 +64,3 @@ function main {
 }
 
 main
-
