@@ -30,3 +30,7 @@ To install use the following idiom:
   "${dir}/install.sh"
 )
 ```
+
+## See also
+
+* [dotfiles](https://github.com/lucastheisen/dotfiles)
