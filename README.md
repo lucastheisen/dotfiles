@@ -33,4 +33,4 @@ To install use the following idiom:
 
 ## See also
 
-* [dotfiles](https://github.com/lucastheisen/dotfiles)
+* [dotfiles](https://github.com/lucastheisen/dotfiles): for my intialization files
