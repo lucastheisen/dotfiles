@@ -7,15 +7,20 @@ if [[ -f /etc/bashrc ]]; then
 fi
 
 function prepend_path {
-  local prepend_dir=$1
-  readarray -t -d: dirs < <(printf '%s' "${PATH}")
-  PATH="${prepend_dir}"
-  for dir in "${dirs[@]}"; do
-    if [[ "${dir}" == "${prepend_dir}" ]]; then
-      continue;
-    fi
-    PATH="${PATH}:${dir}"
+  local dirs=("$@")
+
+  local current_dirs
+  IFS=: read -ra current_dirs <<<"${PATH}"
+  for current_dir in "${current_dirs[@]}"; do
+    for dir in "${dirs[@]}"; do
+      if [[ "${dir}" == "${current_dir}" ]]; then
+        continue 2
+      fi
+    done
+    dirs+=("${current_dir}")
   done
+
+  IFS=: PATH="${dirs[*]}"
 }
 
 if [[ -d ~/.bashrc.d ]]; then
