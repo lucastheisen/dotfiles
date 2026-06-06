@@ -20,7 +20,9 @@ function prepend_path {
     dirs+=("${current_dir}")
   done
 
+  ORIG_IFS="${IFS}"
   IFS=: PATH="${dirs[*]}"
+  IFS="${ORIG_IFS}"
 }
 
 if [[ -d ~/.bashrc.d ]]; then
