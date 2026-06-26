@@ -1,8 +1,12 @@
 alias dumpenv='env -0 | LC_ALL=c sort -z -f | xargs -0 printf "%s\n"'
-alias grep='grep --color' 
+alias grep='grep --color'
 alias scpresume='rsync --partial --progress -r --rsh="ssh"'
+
 if command -v vim; then
   alias vi='vim'
+  EDITOR=vim
+else
+  EDITOR=vi
 fi
 
 eStyle='$'
@@ -12,7 +16,6 @@ fi
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n'"$eStyle "
 unset eStyle
 
-EDITOR=vim
 TERM=xterm-256color
 export EDITOR TERM
 
