@@ -31,9 +31,7 @@ Plug 'mhartington/vim-typings'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-if executable(node)
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Dotnet
 Plug 'OmniSharp/omnisharp-vim'
@@ -76,7 +74,7 @@ let test#python#runner = 'pytest'
 let test#python#pytest#options = '-vvvv --log-level debug'
 
 """" BEGIN COC.NVIM """"
-if executable(node)
+if exists('*CocActionAsync') && executable(get(g:, 'coc_node_path', 'node'))
   " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
   " utf-8 byte sequence
   set encoding=utf-8
