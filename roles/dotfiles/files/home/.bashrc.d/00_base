@@ -2,7 +2,7 @@ alias dumpenv='env -0 | LC_ALL=c sort -z -f | xargs -0 printf "%s\n"'
 alias grep='grep --color'
 alias scpresume='rsync --partial --progress -r --rsh="ssh"'
 
-if command -v vim; then
+if command -v vim &> /dev/null; then
   alias vi='vim'
   EDITOR=vim
 else
