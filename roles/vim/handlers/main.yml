@@ -2,4 +2,4 @@
 - name: Install vim plugins
   listen: "install vim plugins"
   shell: |
-    vim +PlugInstall +qall! &> /dev/null < /dev/tty
+    vim -es -u "$HOME/.vimrc" -i NONE -c 'PlugInstall --sync' -c 'qa'
