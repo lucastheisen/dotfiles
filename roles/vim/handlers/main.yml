@@ -1,5 +1,14 @@
 # Inspired by this issue: https://github.com/junegunn/vim-plug/issues/730
+#
+# Allowed to fail: some plugins' post-install hooks (eg: vim-go's
+# :GoUpdateBinaries) depend on tools that may not be installed yet at the
+# point this playbook runs. A failure here just means a plugin or two
+# didn't fully install, not that anything else in this playbook failed -
+# not worth blocking the whole run over. Re-running this playbook later
+# would pick up anything that failed here, if it ever matters enough to
+# bother.
 - name: Install vim plugins
   listen: "install vim plugins"
+  ignore_errors: true
   shell: |
     vim -es -u "$HOME/.vimrc" -i NONE -c 'PlugInstall --sync' -c 'qa'
